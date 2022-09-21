@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useContext } from "react";
+import { contextApi } from "../Context/Contex-api";
 
+const ScoreBoard = () => {
+  
+  const { hostScore, compScore, hostOption, compOption, gamePointHandler } =
+    useContext(contextApi);
 
-const ScoreBoard = ({hostScore, compScore}) => {
+  useEffect(() => {
+    gamePointHandler();
+  }, [hostOption, compOption]);
+
   return (
     <div>
       <h2>ROCK PAPER SCISSORS</h2>
@@ -9,7 +18,6 @@ const ScoreBoard = ({hostScore, compScore}) => {
         <p>score</p>
         <p>{hostScore}</p>
         <p>{compScore}</p>
-      
       </div>
     </div>
   );

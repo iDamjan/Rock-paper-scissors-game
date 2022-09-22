@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
 import { useContext } from "react";
 import { contextApi } from "../Context/Contex-api";
-
+import classes from './ScoreBoard.module.scss'
 const ScoreBoard = () => {
   
-  const { hostScore, compScore, hostOption, compOption, gamePointHandler } =
+  const { hostScore, hostOption, compOption, gamePointHandler } =
     useContext(contextApi);
+
 
   useEffect(() => {
     gamePointHandler();
   }, [hostOption, compOption]);
 
   return (
-    <div>
+    <div className={classes.container}>
       <h2>ROCK PAPER SCISSORS</h2>
-      <div>
-        <p>score</p>
+      <div className={classes.scoreContainer}>
+        <p>SCORE</p>
         <p>{hostScore}</p>
-        <p>{compScore}</p>
       </div>
     </div>
   );

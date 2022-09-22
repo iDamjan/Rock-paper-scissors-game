@@ -3,6 +3,7 @@ import Options from "./Components/Options";
 import ScoreBoard from "./Components/ScoreBoard";
 import PlayAgain from "./Components/PlayAgain";
 import { ContextProvider } from "./Context/Contex-api";
+import './App.css'
 
 function App() {
   const [playAgain, setPlayAgain] = useState(false);

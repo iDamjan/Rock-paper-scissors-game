@@ -6,46 +6,44 @@ import Scissors from "../static/icon-scissors.svg";
 
 export const contextApi = createContext();
 
-export const ContextProvider = ({children}) => {
+export const ContextProvider = ({ children }) => {
   const options = [
     {
       name: "scissors",
       id: 1,
       img: Scissors,
+      rule: "beats paper",
     },
     {
       name: "paper",
       id: 2,
       img: Paper,
+      rule: "beats rock",
     },
     {
       name: "rock",
       id: 3,
       img: Rock,
+      rule: "beats scissors",
     },
   ];
 
   const [hostOption, setHostOption] = useState("");
   const [compOption, setCompOption] = useState("");
   const [hostScore, setHostScore] = useState(0);
-  const [compScore, setCompScore] = useState(0);
-  
 
   const gamePointHandler = () => {
-    if (hostOption.name === "rock" && compOption.name === "paper") {
-      setCompScore(compScore + 1);
-    } else if (hostOption.name === "paper" && compOption.name === "rock") {
-      setHostScore(hostScore + 1);
-    } else if (hostOption.name === "scissors" && compOption.name === "paper") {
-      setHostScore(hostScore + 1);
-    } else if (hostOption.name === "paper" && compOption.name === "scissors") {
-      setCompScore(compScore + 1);
-    } else if (hostOption.name === "rock" && compOption.name === "scissors") {
-      setHostScore(hostScore + 1);
-    } else if (hostOption.name === "scissors" && compOption.name === "rock") {
-      setCompScore(compScore + 1);
+    if (hostOption && compOption !== "") {
+      if (hostOption.rule.includes(compOption.name)) {
+        setHostScore(hostScore + 1);
+      } else if (compOption.name === hostOption.name) {
+        setHostScore(hostScore + 0);
+      } else {
+        setHostScore(hostScore - 1);
+      }
     }
   };
+
   return (
     <contextApi.Provider
       value={{
@@ -55,11 +53,13 @@ export const ContextProvider = ({children}) => {
         setCompOption,
         hostScore,
         setHostScore,
-        compScore,
-        setCompScore,
+        // compScore,
+        // setCompScore,
         gamePointHandler,
-        options
+        options,
       }}
-    >{children}</contextApi.Provider>
+    >
+      {children}
+    </contextApi.Provider>
   );
 };

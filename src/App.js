@@ -1,22 +1,11 @@
-import { useState } from "react";
-import Options from "./Components/Options";
-import ScoreBoard from "./Components/ScoreBoard";
-import PlayAgain from "./Components/PlayAgain";
-import { ContextProvider } from "./Context/Contex-api";
-import './App.css'
+import Game from "./Components/Game";
+import { ContextProvider } from "./Context/ContextApi";
+import "./App.css";
 
 function App() {
-  const [playAgain, setPlayAgain] = useState(false);
-
   return (
-    
     <ContextProvider>
-      <ScoreBoard />
-      {!playAgain ? (
-        <Options setPlayAgain={setPlayAgain} />
-      ) : (
-        <PlayAgain setPlayAgain={setPlayAgain} />
-      )}
+      <Game />
     </ContextProvider>
   );
 }

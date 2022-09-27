@@ -1,13 +1,12 @@
 import React from "react";
 import { useContext } from "react";
-import { contextApi } from "../Context/Contex-api";
-import classes from './PlayAgain.module.scss'
-export default function PlayAgain({setPlayAgain}) {
+import { contextApi } from "../Context/ContextApi";
+import classes from "./GameResult.module.scss";
 
-  const {hostOption, compOption } = useContext(contextApi);
+export default function GameResult({ setPlayAgain }) {
+  const { hostOption, compOption } = useContext(contextApi);
 
   return (
-
     <div>
       <div className="house">
         <p>You picked</p>

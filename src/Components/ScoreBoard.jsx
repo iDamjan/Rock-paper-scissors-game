@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
-import { useContext } from "react";
-import { contextApi } from "../Context/Contex-api";
-import classes from './ScoreBoard.module.scss'
+import React, { useContext } from "react";
+import { contextApi } from "../Context/ContextApi";
+import classes from "./ScoreBoard.module.scss";
+
 const ScoreBoard = () => {
-  
-  const { hostScore, hostOption, compOption, gamePointHandler } =
-    useContext(contextApi);
-
-
-  useEffect(() => {
-    gamePointHandler();
-  }, [hostOption, compOption]);
+  const { hostScore } = useContext(contextApi);
 
   return (
     <div className={classes.container}>

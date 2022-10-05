@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { contextApi } from "../Context/ContextApi";
+import { contextApi } from "../../Context/ContextApi";
 import classes from "./Game.module.scss";
-import ScoreBoard from "./ScoreBoard";
-import GameResult from "./GameResult";
+import ScoreBoard from "../ScoreBoard/ScoreBoard";
+import GameResult from "../GameResult/GameResult";
 
 export default function Game() {
   const [playAgain, setPlayAgain] = useState(false);
@@ -26,18 +26,20 @@ export default function Game() {
     <div>
       <ScoreBoard />
       {playAgain && <GameResult setPlayAgain={setPlayAgain} />}
-      {!playAgain &&
-        options.map((option) => {
-          return (
-            <div
-              className={classes.options}
-              key={option.id}
-              onClick={() => optionHandler(option)}
-            >
-              <img src={option.img} alt={option.id} />
-            </div>
-          );
-        })}
+      <div className={classes.options}>
+        {!playAgain &&
+          options.map((option) => {
+            return (
+              <div
+                className={classes.option}
+                key={option.id}
+                onClick={() => optionHandler(option)}
+              >
+                <img src={option.img} alt={option.id} />
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { contextApi } from "../Context/ContextApi";
+import { contextApi } from "../../Context/ContextApi";
 import classes from "./ScoreBoard.module.scss";
 
 const ScoreBoard = () => {
@@ -10,7 +10,7 @@ const ScoreBoard = () => {
       <h2>ROCK PAPER SCISSORS</h2>
       <div className={classes.scoreContainer}>
         <p>SCORE</p>
-        <p>{hostScore}</p>
+        <p className={classes.score}>{hostScore}</p>
       </div>
     </div>
   );

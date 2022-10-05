@@ -1,0 +1,30 @@
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+
+  .option {
+    margin: 30px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    border:20px solid rgb(0, 255, 106)
+  }
+  
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+body {
+  background-color: hsl(214, 47%, 23%);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}

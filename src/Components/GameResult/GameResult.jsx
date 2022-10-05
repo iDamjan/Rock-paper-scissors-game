@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { contextApi } from "../Context/ContextApi";
+import { contextApi } from "../../Context/ContextApi";
 import classes from "./GameResult.module.scss";
 
 export default function GameResult({ setPlayAgain }) {

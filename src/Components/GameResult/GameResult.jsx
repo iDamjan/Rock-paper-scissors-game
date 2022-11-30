@@ -7,17 +7,27 @@ export default function GameResult({ setPlayAgain }) {
   const { hostOption, compOption } = useContext(contextApi);
 
   return (
-    <div>
-      <div className="house">
+    <div className={classes.container}>
+      <div className={classes.picked}>
         <p>You picked</p>
-        <img src={hostOption.img} alt="housePicked" />
+        <div
+          className={classes.option}
+          style={{ border: `20px solid ${hostOption.color}` }}
+        >
+          <img src={hostOption.img} alt="housePicked" />
+        </div>
       </div>
       <div className={classes.button} onClick={() => setPlayAgain(false)}>
         Play Again
       </div>
-      <div className="quest">
+      <div className={classes.picked}>
         <p>The House picked</p>
-        <img src={compOption.img} alt="housePicked" />
+        <div
+          className={classes.option}
+          style={{ border: `20px solid ${compOption.color}` }}
+        >
+          <img src={compOption.img} alt="housePicked" />
+        </div>
       </div>
     </div>
   );

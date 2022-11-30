@@ -1,12 +1,55 @@
-.button {
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  
+  .picked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    p{
+        color: white;
+        font-weight: 800;
+        font-size: 20px;
+    }
+  }
+  .button {
     padding: 10px 25px;
-    background-color: black;
-    color:white;
-    width:100px;
+    background-color: white;
+    color: hsl(214, 47%, 23%);
+    width: 120px;
     text-align: center;
     border-radius: 5px;
-    &:hover{
-        cursor: pointer;
-        background-color: rgb(56, 56, 56);
+    font-weight: 800;
+    &:hover {
+      cursor: pointer;
+      background-color: transparent;
+      outline: 2px solid white;
+      color: white;
     }
+  }
+  
+  .option {
+    margin: 30px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    img {
+      width: 100%;
+      max-width: 80px;
+    }
+  }
+}
+
+@media (max-width:40em){
+  .container{
+    flex-direction: column;
+  }
 }

@@ -1,4 +1,4 @@
-import Game from "./Components/Game";
+import Game from "./Components/Game/Game"
 import { ContextProvider } from "./Context/ContextApi";
 import "./App.css";
 

@@ -9,16 +9,19 @@ const gameOptions = [
     id: "scissors",
     img: Scissors,
     winsAgainst: ["paper"],
+    color: "#ECA823",
   },
   {
     id: "paper",
     img: Paper,
     winsAgainst: ["rock"],
+    color: "#5472F7",
   },
   {
     id: "rock",
     img: Rock,
     winsAgainst: ["scissors"],
+    color: "#DF3F61",
   },
 ];
 

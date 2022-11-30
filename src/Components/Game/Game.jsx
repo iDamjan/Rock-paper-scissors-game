@@ -23,7 +23,7 @@ export default function Game() {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <ScoreBoard />
       {playAgain && <GameResult setPlayAgain={setPlayAgain} />}
       <div className={classes.options}>
@@ -32,6 +32,7 @@ export default function Game() {
             return (
               <div
                 className={classes.option}
+                style={{ border: `20px solid ${option.color}` }}
                 key={option.id}
                 onClick={() => optionHandler(option)}
               >

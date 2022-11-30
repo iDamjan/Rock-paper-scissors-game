@@ -6,7 +6,8 @@
   border-radius: 10px;
   padding: 20px 30px;
   color: white;
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   h2 {
     width: 50px;
     font-weight: 800;
@@ -21,7 +22,8 @@
   color: black;
   border-radius: 10px;
   padding: 10px;
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
   p {
     padding: 0;
     margin: 5px;

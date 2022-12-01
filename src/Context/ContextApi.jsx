@@ -3,6 +3,7 @@ import { createContext, useState, useMemo } from "react";
 import Rock from "../static/icon-rock.svg";
 import Paper from "../static/icon-paper.svg";
 import Scissors from "../static/icon-scissors.svg";
+import { useEffect } from "react";
 
 const gameOptions = [
   {
@@ -34,19 +35,31 @@ export const ContextProvider = ({ children }) => {
   const [compOption, setCompOption] = useState("");
   const [hostScore, setHostScore] = useState(0);
 
+  useEffect(() => {
+    const score = JSON.parse(localStorage.getItem("score"));
+    if (score > 0) setHostScore(score);
+  }, []);
+
   const gamePointHandler = (hostOption, compOption) => {
     setHostOption(hostOption);
     setCompOption(compOption);
 
     // Algorithm that determines which hand wins.
+
     if (hostOption.winsAgainst.includes(compOption.id)) {
       setHostScore(hostScore + 1);
     } else if (compOption.id === hostOption.id) {
       setHostScore(hostScore);
     } else {
-      setHostScore(hostScore - 1);
+      if (hostScore > 0) {
+        setHostScore(hostScore - 1);
+      }
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("score", JSON.stringify(hostScore));
+  }, [hostScore]);
 
   return (
     <contextApi.Provider
@@ -56,6 +69,7 @@ export const ContextProvider = ({ children }) => {
         hostScore,
         gamePointHandler,
         options,
+        setHostScore
       }}
     >
       {children}

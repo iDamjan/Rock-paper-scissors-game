@@ -8,7 +8,7 @@ padding-top: 50px;
 
   .options {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     margin: 20px;
@@ -17,7 +17,7 @@ padding-top: 50px;
     margin-top: 50px;
 
     .option {
-      margin: 30px;
+      // margin: 30px;
       width: 200px;
       height: 200px;
       display: flex;
@@ -33,6 +33,7 @@ padding-top: 50px;
 
     &:hover {
       cursor: pointer;
+     
     }
   }
 }

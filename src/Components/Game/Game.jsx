@@ -6,10 +6,14 @@ import ScoreBoard from "../ScoreBoard/ScoreBoard";
 import GameResult from "../GameResult/GameResult";
 
 export default function Game() {
+  
   const [playAgain, setPlayAgain] = useState(false);
   const { options, gamePointHandler } = useContext(contextApi);
 
+  
+
   const optionHandler = (option) => {
+    
     const hostOption = options.find((x) => x.id === option.id);
 
     // Chose a random id for the computer.
